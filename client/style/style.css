@@ -1,0 +1,103 @@
+:root {
+  --color-basketball: rgb(191, 71, 27);
+  --color-sky: #e5ffff;
+  --color-night-sky: #296bb3;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #e5ffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.flex-site-wrapper {
+  display: flex;
+  min-height: 95vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page-container {
+  min-height: 95vh;
+}
+nav {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  color: #296bb3;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #e5ffff;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  box-shadow: none;
+}
+nav ul li a {
+  background-color: #e5ffff;
+  color: #296bb3;
+  text-decoration: none;
+  padding-right: 15px;
+}
+#forumNav {
+  background-color: var(--color-night-sky);
+  color: var(--color-sky);
+  border-radius: 100px;
+  padding: 1px 14px;
+}
+/* .forum-container {
+  margin-top: 100px;
+} */
+p {
+  color: #296bb3;
+}
+h1,
+h3 {
+  font-family: "Source Sans 3", sans-serif;
+  color: #296bb3;
+  font-weight: 700;
+}
+h5#commentDetail {
+  color: var(--color-night-sky);
+}
+.collection-item {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid #296bb3;
+}
+.collection .collection-item {
+  color: var(--color-night-sky);
+}
+.collection .collection-item:last-child {
+  border: 2px solid #296bb3;
+}
+
+.vote-box {
+  display: flex;
+  align-items: center;
+}
+#footerWebsiteLink {
+  text-decoration: none;
+  font-weight: 700;
+  background-color: var(--color-sky);
+  padding: 0 2px;
+}
+#footerWebsiteLink:hover {
+  color: var(--color-sky);
+  background-color: var(--color-night-sky);
+}
+footer a {
+  color: var(--color-basketball);
+}
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  color: var(--color-sky);
+  background-color: var(--color-night-sky);
+  align-items: center;
+  height: 5vh;
+}
+
+/* .comment-link {
+  color: red;
+} */

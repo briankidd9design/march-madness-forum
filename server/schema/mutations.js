@@ -1,48 +1,41 @@
-const graphql = require('graphql');
+const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
-const mongoose = require('mongoose');
-const Song = mongoose.model('song');
-const Lyric = mongoose.model('lyric');
-const SongType = require('./song_type');
-const LyricType = require('./lyric_type');
+const mongoose = require("mongoose");
+const Comment = mongoose.model("comment");
+const Reply = mongoose.model("reply");
+const CommentType = require("./comment_type");
+const ReplyType = require("./reply_type");
 
 const mutation = new GraphQLObjectType({
-  name: 'Mutation',
+  name: "Mutation",
   fields: {
-    addSong: {
-      type: SongType,
+    addComment: {
+      type: CommentType,
       args: {
-        title: { type: GraphQLString }
+        title: { type: GraphQLString },
       },
       resolve(parentValue, { title }) {
-        return new Song({ title }).save();
-      }
+        return new Comment({ title }).save();
+      },
     },
-    addLyricToSong: {
-      type: SongType,
+    addReplyToComment: {
+      type: CommentType,
       args: {
         content: { type: GraphQLString },
-        songId: { type: GraphQLID }
+        commentId: { type: GraphQLID },
       },
-      resolve(parentValue, { content, songId }) {
-        return Song.addLyric(songId, content);
-      }
+      resolve(parentValue, { content, commentId }) {
+        return Comment.addComment(commentId, content);
+      },
     },
-    likeLyric: {
-      type: LyricType,
+    likeReply: {
+      type: ReplyType,
       args: { id: { type: GraphQLID } },
       resolve(parentValue, { id }) {
-        return Lyric.like(id);
-      }
+        return Reply.like(id);
+      },
     },
-    deleteSong: {
-      type: SongType,
-      args: { id: { type: GraphQLID } },
-      resolve(parentValue, { id }) {
-        return Song.findByIdAndRemove(id);
-      }
-    }
-  }
+  },
 });
 
 module.exports = mutation;

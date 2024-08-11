@@ -1,35 +1,35 @@
-const mongoose = require('mongoose');
-const graphql = require('graphql');
+const mongoose = require("mongoose");
+const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLList, GraphQLID, GraphQLNonNull } = graphql;
-const SongType = require('./song_type');
-const LyricType = require('./lyric_type');
-const Lyric = mongoose.model('lyric');
-const Song = mongoose.model('song');
+const CommentType = require("./comment_type");
+const ReplyType = require("./reply_type");
+const Reply = mongoose.model("reply");
+const Comment = mongoose.model("comment");
 
 const RootQuery = new GraphQLObjectType({
-  name: 'RootQueryType',
+  name: "RootQueryType",
   fields: () => ({
-    songs: {
-      type: new GraphQLList(SongType),
+    comments: {
+      type: new GraphQLList(CommentType),
       resolve() {
-        return Song.find({});
-      }
+        return Comment.find({});
+      },
     },
-    song: {
-      type: SongType,
+    comment: {
+      type: CommentType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parentValue, { id }) {
-        return Song.findById(id);
-      }
+        return Comment.findById(id);
+      },
     },
-    lyric: {
-      type: LyricType,
+    reply: {
+      type: ReplyType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parnetValue, { id }) {
-        return Lyric.findById(id);
-      }
-    }
-  })
+        return Reply.findById(id);
+      },
+    },
+  }),
 });
 
 module.exports = RootQuery;
