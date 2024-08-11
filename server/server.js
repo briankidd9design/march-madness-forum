@@ -4,12 +4,12 @@ const expressGraphQL = require("express-graphql");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const schema = require("./schema/schema");
+require("dotenv").config();
 
 const app = express();
 
 // Replace with your Mongo Atlas URI
-const MONGO_URI =
-  "mongodb+srv://briankiddone:DesignCraft77@cluster3.frnid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3";
+const MONGO_URI = `mongodb+srv://briankiddone:${process.env.REACT_APP_MONGODB_PASSWORD}@cluster3.frnid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster3`;
 if (!MONGO_URI) {
   throw new Error("You must provide a MongoLab URI");
 }
