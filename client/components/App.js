@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import Footer from "./footer";
+import Footer from "./Footer";
 
 export default ({ children }) => {
   // we are just following the convention of Materialize css to use a root class of container
