@@ -6,13 +6,20 @@ function Nav() {
       <nav>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="https://march-madness-game-predictor-72494844c114.herokuapp.com/index.html">
+              Home
+            </a>
           </li>
           <li>
-            <a href="#">Data</a>
+            <a href="https://march-madness-game-predictor-72494844c114.herokuapp.com/data.html">
+              Data
+            </a>
           </li>
           <li>
-            <a className="active" href="V">
+            <a
+              className="active"
+              href="https://march-madness-game-predictor-72494844c114.herokuapp.com/about.html"
+            >
               About
             </a>
           </li>
