@@ -1,6 +1,6 @@
-# Lyrical-GraphQL
+# March Madness Comment Forum
 
-Starter project from a GraphQL course on Udemy.com
+March Maddness Comment Forum for the NCAA Game Predictor App
 
 ### Setup
 
